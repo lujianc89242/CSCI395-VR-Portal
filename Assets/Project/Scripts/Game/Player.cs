@@ -136,22 +136,22 @@ public class Player : MonoBehaviour
             GameObject portalObject = Instantiate(portalPrefab);
             currentPortal = portalObject.GetComponent<Portal>();
             // Disable the camera so it doesn't render in the device's display.
-            //currentPortal.GetComponentInChildren<Camera>().enabled = false;
+            currentPortal.GetComponentInChildren<Camera>().enabled = false;
             portals.Add (currentPortal);
 
             // If added both portals, activate the cameras, set their
 			// target textures as the project's render textures and,
 			// finally, set the textures of the portals' materials.
-            // if(portals.Count == 2){
-            //     portals[0].GetComponentInChildren<Camera> ().enabled = true;
-			// 	portals[1].GetComponentInChildren<Camera> ().enabled = true;
+            if(portals.Count == 2){
+                portals[0].GetComponentInChildren<Camera> ().enabled = true;
+				portals[1].GetComponentInChildren<Camera> ().enabled = true;
 
-			// 	portals[0].GetComponentInChildren<Camera> ().targetTexture = renderTextures [0];
-			// 	portals[1].GetComponentInChildren<Camera> ().targetTexture = renderTextures [1];
+				portals[0].GetComponentInChildren<Camera> ().targetTexture = renderTextures [0];
+				portals[1].GetComponentInChildren<Camera> ().targetTexture = renderTextures [1];
 
-			// 	portals[0].GetComponent<Renderer>().material.SetTexture("_MainTex", renderTextures[1]);
-			// 	portals[1].GetComponent<Renderer>().material.SetTexture("_MainTex", renderTextures[0]);
-            // }
+				portals[0].GetComponent<Renderer>().material.SetTexture("_MainTex", renderTextures[1]);
+				portals[1].GetComponent<Renderer>().material.SetTexture("_MainTex", renderTextures[0]);
+            }
         }
         else
         {
